@@ -24,8 +24,9 @@ module.exports = {
   },
   ...
   criticalcss: {
+    cwd: "deploy",
     stylesheets: "#style", // selector, which inline stylesheets to replace
-    save: "./build", // where to save critical and uncritical css
+    save: "build", // where to save critical and uncritical css
     path: "" // relative path where your build folder is served
     // for mor options see get-critical-css package
   }
