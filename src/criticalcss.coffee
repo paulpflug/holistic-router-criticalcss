@@ -10,7 +10,9 @@ module.exports = (routerOpts) =>
   opts = routerOpts.criticalcss
   delete routerOpts.criticalcss
   routerOpts.cache = false
-  routerOpts.cwd = opts.cwd if opts.cwd
+  if opts.cwd
+    routerOpts.cwd = opts.cwd 
+    opts.save = resolve opts.cwd, opts.save if opts.save
   router = new Router(routerOpts)
   routes = opts.routes or [""]
   h = opts.html = []
