@@ -1,0 +1,52 @@
+{
+  "name": "holistic-router-criticalcss",
+  "description": "cli to generate criticalcss for holistic-router",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paulpflug/",
+  "author": {
+    "name": "Paul Pflugradt",
+    "email": "paul.pflugradt@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paulpflug/holistic-router-criticalcss"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "main": "criticalcss.js",
+  "bin": {
+    "get-critical-css": "cli.js"
+  },
+  "files": [
+    "*.js"
+  ],
+  "dependencies": {
+    "get-critical-css": "^0.1.1"
+  },
+  "peerDependencies": {
+    "holistic-router": "^0.2.11"
+  },
+  "devDependencies": {
+    "autodev": "^0.1.2",
+    "coffeescript": "^2.0.0-beta3",
+    "holistic-router": "^0.2.11",
+    "koa": "^2.3.0",
+    "koa-static": "^4.0.1",
+    "script-runner": "^0.1.7"
+  },
+  "keywords": [
+    "critical css"
+  ],
+  "readmeFilename": "README.md",
+  "scripts": {
+    "build": "coffee --bare --no-header --compile --output . src/*.coffee",
+    "test": "coffee ./src/criticalcss.coffee ./dev/router.coffee",
+    "test:cli": "npm run build && node ./cli.js ./dev/router.coffee",
+    "test:server": "autodev ./dev/server.coffee",
+    "preversion": "npm run test",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags && npm publish"
+  }
+}
