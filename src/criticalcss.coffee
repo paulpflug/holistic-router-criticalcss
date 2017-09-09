@@ -9,6 +9,8 @@ module.exports = (routerOpts) =>
     routerOpts = require resolve(routerOpts)
   opts = routerOpts.criticalcss
   delete routerOpts.criticalcss
+  routerOpts.cache = false
+  routerOpts.cwd = opts.cwd if opts.cwd
   router = new Router(routerOpts)
   routes = opts.routes or [""]
   h = opts.html = []
